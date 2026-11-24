@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marco Contabilidade | Contabilidade para pequenas empresas</title>
+<meta name="description" content="Impostos, notas e obrigações da sua empresa em dia, com atendimento por WhatsApp e linguagem simples.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#060811;--panel:#0d1224;--band:#0c1020;--card:#0a0e1c;--ink:#F2F4FA;--muted:#9AA3BC;--line:#1f2740;
+  --gold:#E9C45F;--gold-2:#B8924A;--gold-grad:linear-gradient(90deg,#F3D57A,#C9A24E 70%,#A98338);
+  --teal:#1d5fe4;--teal-h:#3b77f2;--bad:#C98A8A;
+  --font:'Poppins','Segoe UI',system-ui,sans-serif;
+  color-scheme:dark;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{height:100%;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 1rem/1.6 var(--font)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+*,*::before,*::after{box-sizing:inherit}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+section{padding:80px 0}
+h1,h2,h3{font-weight:700;line-height:1.15;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,5vw,3.2rem);color:var(--gold)}
+h2{font-size:clamp(1.5rem,3.2vw,2.1rem)}
+h3{font-size:1.05rem}
+p{margin:0}
+.gold{color:var(--gold)}
+.center{text-align:center}
+.lead{color:var(--ink);opacity:.88;font-size:1.05rem;max-width:46ch}
+.fine{color:var(--muted);font-size:.85rem}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 30px;border-radius:4px;font:600 .98rem var(--font);text-decoration:none;border:1.5px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer;transition:background .2s,border-color .2s}
+.btn:hover{background:var(--teal-h);border-color:var(--teal-h)}
+.btn.block{width:100%}
+
+/* topo */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,5,5,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.05rem var(--font)}
+.logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);font:800 1rem var(--font);font-style:normal}
+.top nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.top nav a{text-decoration:none;color:var(--muted);font-weight:600;font-size:.92rem}
+.top nav a:hover{color:var(--gold)}
+.top .btn{min-height:42px;padding:8px 18px;font-size:.9rem}
+
+/* hero */
+.hero{padding:64px 0 76px;background:
+  radial-gradient(60% 70% at 85% 20%,rgba(233,196,95,.14),transparent 70%),
+  radial-gradient(40% 50% at 0% 100%,rgba(233,196,95,.07),transparent 70%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.hero h1{margin-bottom:18px;font-size:clamp(2rem,4.6vw,2.9rem);font-weight:600;color:var(--ink)}
+.hero h1 .rot{display:grid;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;color:var(--gold);font-weight:800}
+.hero h1 .rot span{grid-area:1/1;opacity:0;transform:translateY(110%);transition:transform .8s cubic-bezier(.34,1.35,.5,1),opacity .5s ease}
+.hero h1 .rot span.on{opacity:1;transform:none}
+.hero h1 .rot span.out{opacity:0;transform:translateY(-110%)}
+.pill{display:inline-flex;align-items:center;gap:10px;margin-bottom:22px;padding:8px 16px;border-radius:999px;border:1px solid var(--gold-2);background:rgba(233,196,95,.08);color:var(--gold);font-size:.82rem;font-weight:600;text-decoration:none}
+.pill:hover{background:rgba(233,196,95,.16)}
+.pill svg{width:14px;height:14px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.btn.outline{background:transparent;border-color:var(--gold-2);color:var(--gold)}
+.btn.outline:hover{background:rgba(233,196,95,.12);border-color:var(--gold)}
+.hero .lead{margin-bottom:26px;font-size:.98rem}
+.secure{display:flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:.82rem}
+.secure svg{width:14px;height:14px;flex:none}
+.frame{border:1.5px solid var(--gold-2);border-radius:16px;padding:10px;background:linear-gradient(160deg,#1c170b,#0a0a0a 60%);box-shadow:0 0 60px -20px rgba(233,196,95,.4)}
+.stmt{border-radius:10px;padding:26px;background:var(--card);border:1px solid var(--line)}
+.stmt h3{color:var(--gold);font-size:1.15rem;margin-bottom:2px}
+.stmt small{color:var(--muted);font-size:.82rem}
+.stmt dl{margin:16px 0 0}
+.stmt dl div{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid var(--line);font-size:.92rem}
+.stmt dt{color:var(--muted)}
+.stmt dd{margin:0;font-weight:600}
+.stmt dd::before{content:"";display:inline-block;width:.5em;height:.5em;border-radius:50%;background:var(--gold);margin-right:8px}
+.stmt .total{border-top:2px solid var(--gold-2)}
+.stmt .total dd{color:var(--gold)}
+
+/* faixa de números */
+.proof{position:relative;isolation:isolate;overflow:hidden;padding:64px 0;text-align:center;background:var(--bg);border-top:1px solid var(--line)}
+.proof::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.45;
+  background-image:linear-gradient(to right,rgba(169,166,156,.55),transparent 1px),linear-gradient(to bottom,rgba(169,166,156,.55),transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 95% at 50% 50%,#000 0%,transparent 100%);
+  mask-image:radial-gradient(ellipse 75% 95% at 50% 50%,#000 0%,transparent 100%)}
+/* brilho dourado discreto: um risco claro que passa de tempos em tempos */
+.proof .gold,.proof b{color:var(--gold)}
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .proof .gold,.proof b{
+    background-image:linear-gradient(110deg,#E9C45F 0%,#E9C45F 41%,#F6E2A0 47%,#FFFFFF 50%,#F6E2A0 53%,#E9C45F 59%,#E9C45F 100%);
+    background-size:300% 100%;background-position:100% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+    animation:glint 8s ease-in-out infinite}
+  .proof li:nth-child(2) b{animation-delay:.35s}
+  .proof li:nth-child(3) b{animation-delay:.7s}
+  .proof li:nth-child(4) b{animation-delay:1.05s}
+}
+@keyframes glint{0%,55%{background-position:100% 0}100%{background-position:0% 0}}
+.proof h2{max-width:24ch;margin:0 auto 12px}
+.proof .sub{color:var(--muted);max-width:50ch;margin:0 auto 34px}
+.proof ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.proof li{padding:6px 10px;border-left:2px solid var(--gold-2);text-align:left}
+.proof b{display:block;font:700 1.35rem var(--font)}
+.proof span{color:var(--muted);font-size:.88rem}
+
+/* o que cuidamos */
+.teach{padding:70px 0}
+.teach-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.docs{position:relative;height:340px}
+.doc{position:absolute;width:62%;background:#f4f1e8;color:#1a1a1a;border-radius:6px;padding:18px;box-shadow:0 20px 40px -12px rgba(0,0,0,.8)}
+.doc b{display:block;font-size:.8rem;margin-bottom:10px}
+.doc i{display:block;height:7px;border-radius:4px;background:#cfcabb;margin:7px 0}
+.doc i:nth-child(3){width:70%}.doc i:nth-child(4){width:85%}
+.doc.d1{left:0;top:10px;transform:rotate(-8deg)}
+.doc.d2{right:0;top:0;transform:rotate(6deg);background:#e9c45f}
+.doc.d2 i{background:#b8924a}
+.doc.d3{left:18%;top:120px;transform:rotate(-2deg);background:#161616;color:var(--gold);border:1.5px solid var(--gold-2)}
+.doc.d3 i{background:#3a3220}
+.teach h2{margin-bottom:22px}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.bars li{padding:12px 16px;background:var(--panel);border:1px solid var(--line);border-bottom:2px solid #1f1c14;border-radius:3px;font-size:.9rem}
+.bars b{display:block;font-weight:600}
+.bars span{color:var(--muted);font-size:.82rem;line-height:1.4;display:block}
+.teach .closer{margin-top:18px;font-weight:700;color:var(--gold)}
+
+/* é para quem */
+.for{position:relative;isolation:isolate;overflow:hidden;background:var(--band);border-block:1px solid var(--line);text-align:center}
+.for::before{content:"";position:absolute;inset:0;z-index:-1;opacity:.35;
+  background-image:linear-gradient(to right,rgba(169,166,156,.55),transparent 1px),linear-gradient(to bottom,rgba(169,166,156,.55),transparent 1px);
+  background-size:48px 48px;
+  -webkit-mask-image:radial-gradient(ellipse 75% 95% at 50% 50%,#000 0%,transparent 100%);
+  mask-image:radial-gradient(ellipse 75% 95% at 50% 50%,#000 0%,transparent 100%)}
+.for h2{color:var(--gold)}
+@supports (-webkit-background-clip:text) or (background-clip:text){
+  .for h2{
+    background-image:linear-gradient(110deg,#E9C45F 0%,#E9C45F 41%,#F6E2A0 47%,#FFFFFF 50%,#F6E2A0 53%,#E9C45F 59%,#E9C45F 100%);
+    background-size:300% 100%;background-position:100% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;
+    animation:glint 8s ease-in-out infinite}
+}
+.for .checks li::before{background-image:linear-gradient(110deg,#E9C45F 0%,#E9C45F 38%,#FFF3C4 50%,#E9C45F 62%,#E9C45F 100%);background-size:300% 100%;background-position:100% 0;animation:glint 8s ease-in-out infinite}
+.for .checks li:nth-child(2)::before{animation-delay:.3s}
+.for .checks li:nth-child(3)::before{animation-delay:.6s}
+.for .checks li:nth-child(4)::before{animation-delay:.9s}
+.for .checks li:nth-child(5)::before{animation-delay:1.2s}
+.for h2{margin-bottom:34px}
+.checks{list-style:none;margin:0 auto 34px;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;max-width:900px}
+.checks li{flex:0 1 calc(33.333% - 11px);min-width:240px;background:var(--card);border-bottom:2px solid var(--gold-2);border-radius:3px;padding:20px 18px;font-size:.88rem;line-height:1.45}
+.checks li::before{content:"✓";display:grid;place-items:center;width:22px;height:22px;margin:0 auto 12px;border-radius:4px;background:var(--gold);color:#000;font-weight:800;font-size:.8rem}
+
+/* benefícios */
+.gains h2{max-width:24ch;margin:0 auto 40px;text-align:center}
+.gains-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.gbars{display:grid;gap:12px}
+.gbars div{padding:14px 18px;border-radius:3px;background:var(--gold-grad);color:#1a1405;font-weight:700;font-size:.92rem}
+.gains .more{margin-top:18px;font-weight:700}
+.vs{border:1.5px solid var(--gold-2);border-radius:14px;overflow:hidden;background:var(--card)}
+.vs-col{padding:22px 22px 14px}
+.vs-col+.vs-col{border-top:1px solid var(--line)}
+.vs h3{margin-bottom:8px;font-size:.98rem}
+.vs .no h3{color:var(--muted)}
+.vs .yes h3{color:var(--gold)}
+.vs ul{list-style:none;margin:0;padding:0}
+.vs li{display:flex;gap:10px;padding:8px 0;font-size:.88rem;line-height:1.4}
+.vs li::before{flex:none;font-weight:800;width:1em}
+.vs .no li{color:var(--muted)}
+.vs .no li::before{content:"✕";color:var(--bad)}
+.vs .yes li::before{content:"✓";color:var(--gold)}
+.pivot{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px 28px;margin-top:44px}
+.pivot p{font-weight:700;font-size:1.15rem}
+
+/* passos em carrossel */
+.carousel-sec{padding-top:30px}
+.carousel-sec h2{text-align:center;margin-bottom:32px}
+.car{position:relative}
+.track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:16px;padding:22px 16px 30px;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.mod{flex:0 0 calc(25% - 12px);min-width:210px;scroll-snap-align:start;border:1.5px solid var(--gold-2);border-radius:10px;padding:8px;background:var(--panel);text-align:center;list-style:none}
+.mod{position:relative;transition:transform .45s cubic-bezier(.22,.8,.3,1),box-shadow .45s ease,border-color .45s ease}
+@media (hover:hover){.mod:hover{transform:translateY(-8px) scale(1.06);z-index:2;border-color:var(--gold);box-shadow:0 28px 50px -22px rgba(0,0,0,.95),0 0 36px -10px rgba(233,196,95,.35)}}
+.mod .art{display:grid;place-items:center;aspect-ratio:1/1.05;border-radius:6px;background:radial-gradient(circle at 50% 35%,#3a2f12,#0a0a0a 75%);font:800 4.2rem var(--font);color:var(--gold)}
+.mod h3{padding:14px 10px 6px;border-bottom:2px solid var(--gold-2);margin:0 10px;font-size:1rem;min-height:3.6em;display:flex;align-items:center;justify-content:center}
+.mod p{padding:12px 10px 10px;color:var(--muted);font-size:.84rem;line-height:1.45}
+.arrow{position:absolute;top:42%;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold-2);background:rgba(5,5,5,.9);color:var(--gold);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;z-index:2}
+.arrow:hover{background:var(--gold);color:#000}
+.arrow.l{left:-14px}.arrow.r{right:-14px}
+
+/* depoimentos */
+.quotes-sec{background:var(--band);border-block:1px solid var(--line)}
+.quotes-sec h2{text-align:center;margin-bottom:34px}
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+blockquote{margin:0;padding:22px;background:var(--card);border-bottom:2px solid var(--gold-2);border-radius:3px}
+blockquote p{font-size:.95rem;line-height:1.55;margin-bottom:14px}
+blockquote footer{color:var(--gold);font-size:.85rem;font-weight:600}
+
+/* dúvidas */
+.faq-sec h2{text-align:center;margin-bottom:30px}
+.faq{max-width:760px;margin:0 auto}
+details{border-top:1px solid var(--line);padding:18px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font:600 1rem var(--font);list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--gold);font-size:1.5rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin-top:10px;color:var(--muted);font-size:.93rem}
+
+/* final */
+.band{background:radial-gradient(60% 80% at 80% 0%,rgba(233,196,95,.12),transparent 70%),var(--band);border-top:1px solid var(--gold-2)}
+.final{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.final h2{max-width:18ch;margin-bottom:14px}
+form{display:grid;gap:14px;background:var(--card);border:1.5px solid var(--gold-2);padding:26px;border-radius:14px}
+label{display:grid;gap:6px;font-weight:600;font-size:.88rem}
+input,select{font:inherit;min-height:48px;padding:10px 12px;border:1.5px solid var(--line);border-radius:4px;background:#000;color:var(--ink)}
+input::placeholder{color:#6d6a60}
+.err{color:var(--bad);font-size:.88rem;min-height:1.2em}
+form .fine{margin:0}
+
+footer.site{background:#000;color:var(--muted);padding:36px 0;border-top:1px solid var(--line);font-size:.88rem}
+footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+footer.site b{color:var(--gold);font-size:1rem}
+.mbar{display:none}
+
+/* ===== estética fintech: navy, brilho azul, cartões claros, amarelo mantido ===== */
+.hero{background:radial-gradient(50% 70% at 82% 30%,rgba(29,95,228,.38),transparent 70%),radial-gradient(35% 45% at 4% 95%,rgba(233,196,95,.12),transparent 70%),var(--bg)}
+.hero h1,.hero .lead{font-weight:500}.hero h1{font-weight:500}.hero h1 .rot{font-weight:600}
+.tag{display:inline-block;margin-bottom:16px;padding:6px 14px;border-radius:6px;background:rgba(255,255,255,.07);color:var(--muted);font-size:.74rem;font-weight:500}
+.tag.dark{background:rgba(29,95,228,.12);color:#1d4fb8;margin-bottom:10px}
+.slot{position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(145deg,#18224a,#0b1128);border:1px dashed rgba(233,196,95,.5);border-radius:12px}
+.slot::after{content:attr(data-label);padding:12px;text-align:center;font-size:.72rem;line-height:1.4;color:var(--gold)}
+.slot img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover}
+.slot img:not([src]){display:none}
+.slot:has(img[src]){border-color:transparent}.slot:has(img[src])::after{display:none}
+.stage{position:relative;perspective:1100px;padding:10px 0 30px}
+.tilt{position:relative;max-width:360px;margin-left:auto;transform-style:preserve-3d;transform:rotateY(-12deg) rotateX(5deg);transition:transform .2s ease-out}
+.hero-photo{aspect-ratio:4/5;border-radius:18px;box-shadow:0 50px 80px -40px #000,0 0 0 1px rgba(255,255,255,.08)}
+.tilt .stmt{position:absolute;left:-70px;bottom:-24px;width:84%;padding:18px;background:rgba(10,14,28,.94);border:1px solid rgba(233,196,95,.45);transform:translateZ(70px);box-shadow:0 30px 50px -20px #000}
+.tilt .stmt dl div{padding:8px 0;font-size:.82rem}
+.chip{position:absolute;top:22px;right:-26px;padding:10px 16px;border-radius:10px;background:rgba(10,14,28,.94);border:1px solid var(--line);font-size:.8rem;color:var(--muted);transform:translateZ(90px);box-shadow:0 20px 40px -18px #000}
+.chip b{color:var(--gold);font-size:1.05rem}
+.sec-head{margin-bottom:38px}.sec-head h2{max-width:20ch;margin:0 auto}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bc{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:22px;border-radius:14px;background:linear-gradient(160deg,#f4f6fc,#dde4f4);color:#141a2e;box-shadow:0 30px 60px -38px #000}
+.bc h3{margin-bottom:6px}.bc p{color:#4a5270;font-size:.85rem;line-height:1.5}
+.bc .slot{flex:0 0 36%;aspect-ratio:1}
+.bc.tall{grid-column:2;grid-row:1/4;flex-direction:column;align-items:stretch;justify-content:flex-start}
+.bc.tall .slot{flex:1;aspect-ratio:auto;min-height:240px;border-radius:10px}
+.bc.blue{background:linear-gradient(160deg,#2a6bf0,#16389c);color:#fff}.bc.blue p{color:#d4e0ff}
+.viz{display:flex;align-items:flex-end;gap:7px;height:84px;flex:0 0 36%}
+.viz i{flex:1;border-radius:3px;background:linear-gradient(#F3D57A,#B8924A)}
+.bc.slim{grid-column:auto}
+.bc.slim:nth-of-type(5){grid-column:1}.bc.slim:nth-of-type(6){grid-column:2}
+.av{display:inline-grid;width:46px;height:46px;margin-right:10px;vertical-align:middle;border-radius:50%}.av::after{content:""}
+@media (max-width:860px){
+  .tilt{transform:none;margin:0 auto}.tilt .stmt{position:relative;left:auto;bottom:auto;width:auto;margin-top:-50px;transform:none}
+  .chip{right:8px;transform:none}
+  .bento{grid-template-columns:1fr}.bc.tall,.bc.slim:nth-of-type(5),.bc.slim:nth-of-type(6){grid-column:1;grid-row:auto}
+}
+/* entrada suave ao rolar */
+.js .rv{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,.8,.3,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+/* botão flutuante e chat */
+.wa-float{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:40;display:flex;align-items:center;gap:0;height:56px;padding:0 14px;border-radius:999px;background:#1faa57;color:#fff;text-decoration:none;font:600 .88rem var(--font);box-shadow:0 14px 30px -10px rgba(0,0,0,.8);transition:gap .3s,padding .3s,background .2s}
+.wa-float svg{width:28px;height:28px;flex:none}
+.wa-float span{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s ease}
+.wa-float:hover{background:#25bd64;gap:10px;padding:0 20px 0 14px}.wa-float:hover span{max-width:200px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.chat{display:flex;flex-direction:column;height:500px;border:1.5px solid var(--gold-2);border-radius:14px;background:var(--card);overflow:hidden}
+.chat-head{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.chat-head i{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);font:700 1rem var(--font);font-style:normal}
+.chat-head b{display:block;font-size:.92rem}.chat-head small{color:var(--muted);font-size:.78rem}
+.log{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:16px;scroll-behavior:smooth}
+.msg{max-width:84%;padding:10px 14px;border-radius:14px;font-size:.9rem;line-height:1.45;animation:pop .35s ease}
+.msg.bot{align-self:flex-start;background:#161d36;border-bottom-left-radius:4px}
+.msg.me{align-self:flex-end;background:var(--gold);color:#1a1405;font-weight:500;border-bottom-right-radius:4px}
+.dots{display:inline-flex;gap:4px;padding:4px 0}.dots i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}}
+@keyframes blink{50%{opacity:.25}}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 12px}
+.opts button,.opts a{padding:9px 14px;border-radius:999px;border:1px solid var(--gold-2);background:transparent;color:var(--gold);font:500 .85rem var(--font);cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.opts button:hover{background:var(--gold);color:#1a1405}
+.opts a.go{background:#1faa57;border-color:#1faa57;color:#fff;font-weight:600}
+.cf{display:flex;gap:8px;padding:0 16px 12px}
+.cf[hidden]{display:none}.cf input{flex:1;min-width:0}.cf .btn{min-height:48px;padding:0 20px}
+@media (max-width:860px){.wa-float{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+@media (max-width:860px){
+  section{padding:56px 0}
+  .top nav{display:none}
+  .hero-grid,.teach-grid,.gains-grid,.final,.quotes{grid-template-columns:1fr}
+  .hero-grid,.final,.teach-grid,.gains-grid{gap:34px}
+  .proof ul{grid-template-columns:1fr 1fr}
+  .docs{height:300px;order:2}
+  .mod{flex-basis:70%}
+  .arrow{display:none}
+  .mbar{display:block;position:fixed;inset:auto 0 0;z-index:25;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line)}
+  .mbar .btn{width:100%}
+  body{padding-bottom:76px}
+}
+@media (prefers-reduced-motion:reduce){.msg{animation:none}.dots i{animation:none}.js .rv{opacity:1!important;transform:none!important;transition:none!important}.mod:hover{transform:none!important}.tilt{transition:none}.for h2,.for .checks li::before{animation:none!important}.proof .gold,.proof b{animation:none!important}.hero h1 .rot span{transition:none!important}*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Marco Contabilidade, início"><i>M</i>Marco Contabilidade</a>
+    <nav aria-label="Principal"><ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#como">Como funciona</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+    </ul></nav>
+    <a class="btn" data-wa="Olá! Vim pelo site e quero falar com um contador.">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- 1. Abertura: título + CTA à esquerda, cartão emoldurado à direita -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <a class="pill" href="#como">Veja como começamos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <h1>Abrindo sua empresa com <span class="rot" id="rot" aria-live="off"><span class="on">confiança</span><span>transparência</span><span>facilidade</span></span></h1>
+      <p class="lead">Da abertura do CNPJ ao fechamento de cada mês, cuidamos dos impostos, das notas e das obrigações da sua empresa e explicamos tudo em linguagem simples. Para MEIs, pequenas empresas e profissionais PJ, com atendimento por WhatsApp.</p>
+      <div class="cta-row">
+        <a class="btn outline" data-wa="Olá! Quero falar com um contador sobre a minha empresa.">Falar com um contador</a>
+        <a class="btn" data-wa="Olá! Quero abrir minha empresa. Pode me ajudar?">Quero abrir minha empresa</a>
+      </div>
+      <p class="secure"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17 9V7a5 5 0 0 0-10 0v2H5v12h14V9zm-8-2a3 3 0 0 1 6 0v2H9z"/></svg>Sem compromisso. Respondemos em até 1 dia útil.</p>
+    </div>
+    <div class="stage">
+      <div class="tilt">
+        <div class="slot hero-photo" data-label="Foto do contador ou do empresário (vertical, 4:5)"><img alt="Contador da Marco Contabilidade" loading="eager" decoding="async"></div>
+        <aside class="stmt" aria-label="Exemplo de fechamento do mês">
+          <h3>Fechamento do mês</h3>
+          <small>Exemplo ilustrativo do que você recebe</small>
+          <dl>
+            <div><dt>Imposto do mês (DAS)</dt><dd>Pago no prazo</dd></div>
+            <div><dt>Notas fiscais</dt><dd>Conferidas</dd></div>
+            <div><dt>Folha de pagamento</dt><dd>Enviada</dd></div>
+            <div class="total"><dt>Retirada segura</dt><dd>R$ 4.800,00</dd></div>
+          </dl>
+        </aside>
+        <div class="chip"><b>[000]+</b> empresas atendidas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. Credenciais, centralizadas -->
+<div class="proof">
+  <div class="wrap">
+    <h2 class="gold">Contabilidade com rosto, registro e experiência</h2>
+    <p class="sub">Quem cuida da sua empresa tem nome, CRC e histórico para mostrar.</p>
+    <ul>
+      <li><b>[00] anos</b><span>de experiência em contabilidade</span></li>
+      <li><b>[000]</b><span>empresas atendidas</span></li>
+      <li><b>CRC-SP [000000]</b><span>registro profissional</span></li>
+      <li><b>[0,0] no Google</b><span>avaliação dos clientes</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 3. Serviços em cartões, com espaços para fotos -->
+<section id="servicos" class="teach">
+  <div class="wrap">
+    <div class="center sec-head">
+      <span class="tag">O que cuidamos</span>
+      <h2>Tudo o que a sua empresa precisa, num só lugar</h2>
+      <p class="lead" style="margin:12px auto 0">Do CNPJ ao fechamento de cada mês, pelo seu WhatsApp.</p>
+    </div>
+    <div class="bento">
+      <article class="bc"><div><h3>Contabilidade mensal</h3><p>Balancetes e relatórios que você consegue entender e usar.</p></div><div class="slot"><img src="fotos/reuniao.jpg" alt="Reunião de equipe analisando relatórios financeiros" loading="lazy" decoding="async" width="400" height="400" style="object-position:55% 45%"></div></article>
+      <article class="bc tall"><div class="slot"><img src="fotos/fachada.jpg" alt="Fachada de um escritório de contabilidade" loading="lazy" decoding="async" width="400" height="400" style="object-position:50% 30%"></div><div><span class="tag dark">Primeiro passo</span><h3>Abertura de empresa</h3><p>CNPJ, inscrições e licenças, do contrato social ao primeiro imposto.</p></div></article>
+      <article class="bc blue"><div><h3>Impostos e obrigações</h3><p>Cálculo, guias e declarações entregues dentro do prazo.</p></div><div class="viz" aria-hidden="true"><i style="height:35%"></i><i style="height:55%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:100%"></i></div></article>
+      <article class="bc"><div><h3>Folha e departamento pessoal</h3><p>Admissões, férias, 13º salário e encargos sem erro.</p></div><div class="slot"><img src="fotos/equipe.jpg" alt="Equipe comemorando em um escritório" loading="lazy" decoding="async" width="400" height="400"></div></article>
+      <article class="bc slim"><div><h3>Troca de contador</h3><p>Cuidamos da migração e da papelada, e você não perde nada.</p></div></article>
+      <article class="bc slim"><div><h3>Regularização e imposto de renda</h3><p>Saída de pendências e declaração de pessoa física e jurídica.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Para quem é: faixa clara com cartões marcados -->
+<section class="for">
+  <div class="wrap">
+    <h2>É para o empresário que:</h2>
+    <ul class="checks">
+      <li>É MEI, tem pequena empresa ou trabalha como profissional PJ</li>
+      <li>Quer ser avisado antes do vencimento, e nunca pagar em atraso</li>
+      <li>Quer impostos, notas e documentos num só lugar</li>
+      <li>Quer tirar dúvidas pelo WhatsApp, sem jargão</li>
+      <li>Quer saber quanto pode retirar da empresa com segurança</li>
+    </ul>
+    <a class="btn" data-wa="Olá! Me identifiquei com o perfil do site. Podemos conversar?">Quero minha empresa em dia</a>
+  </div>
+</section>
+
+<!-- 5. Antes e depois, com barras douradas -->
+<section class="gains">
+  <div class="wrap">
+    <h2>Quando a contabilidade está em dia, você ganha tempo para o que importa…</h2>
+    <div class="gains-grid">
+      <div>
+        <div class="gbars">
+          <div>Controle sobre os números da empresa</div>
+          <div>Impostos sempre pagos no prazo</div>
+          <div>Segurança para retirar o seu dinheiro</div>
+        </div>
+        <p class="more gold">Isso é apenas o começo!</p>
+      </div>
+      <div class="vs">
+        <div class="vs-col no">
+          <h3>Sem acompanhamento</h3>
+          <ul>
+            <li>Você descobre a multa quando a cobrança chega.</li>
+            <li>A guia de imposto se perde entre e-mails e conversas.</li>
+            <li>Cada dúvida vira dias de espera por uma resposta.</li>
+            <li>Você não sabe quanto pode retirar da empresa.</li>
+          </ul>
+        </div>
+        <div class="vs-col yes">
+          <h3>Com a Marco Contabilidade</h3>
+          <ul>
+            <li>Avisamos antes do vencimento, e nada é pago em atraso.</li>
+            <li>Impostos, notas e documentos ficam num só lugar.</li>
+            <li>Respondemos suas dúvidas pelo WhatsApp, sem jargão.</li>
+            <li>Você sabe quanto pode retirar com segurança.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pivot">
+      <p>Chega de descobrir o problema tarde.</p>
+      <a class="btn" data-wa="Olá! Quero parar de descobrir problemas tarde. Podemos conversar?">Quero minha empresa em dia</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6. Como começamos: carrossel de cartões -->
+<section id="como" class="carousel-sec">
+  <div class="wrap">
+    <h2>Como começamos:</h2>
+    <div class="car">
+      <button class="arrow l" type="button" aria-label="Passo anterior" data-dir="-1">‹</button>
+      <ol class="track" id="track" style="margin:0">
+        <li class="mod"><div class="art" aria-hidden="true">1</div><h3>Conversa rápida</h3><p>Você conta como é a sua empresa, pelo WhatsApp.</p></li>
+        <li class="mod"><div class="art" aria-hidden="true">2</div><h3>Diagnóstico</h3><p>Avaliamos sua situação e enviamos um orçamento fechado.</p></li>
+        <li class="mod"><div class="art" aria-hidden="true">3</div><h3>Migração sem burocracia</h3><p>Pedimos os documentos e organizamos tudo por você.</p></li>
+        <li class="mod"><div class="art" aria-hidden="true">4</div><h3>Acompanhamento mensal</h3><p>Você recebe o fechamento e avisos antes de cada prazo.</p></li>
+      </ol>
+      <button class="arrow r" type="button" aria-label="Próximo passo" data-dir="1">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Depoimentos -->
+<section class="quotes-sec">
+  <div class="wrap">
+    <h2 style="margin-bottom:10px">Quem já trabalha com a gente</h2>
+    <p class="fine center" style="margin-bottom:30px">Depoimentos e pessoas fictícios, só para ilustrar o layout. Troque por depoimentos reais antes de publicar.</p>
+    <div class="quotes">
+      <blockquote><p>“Antes eu descobria a guia vencida depois do prazo. Agora recebo o aviso antes e pago tudo em dia.”</p><footer><span class="slot av"><img src="fotos/cliente1.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Larissa Mendes, consultoria PJ (fictício)</footer></blockquote>
+      <blockquote><p>“Tirei minhas dúvidas pelo WhatsApp no mesmo dia, sem termo complicado. Hoje entendo o que estou pagando.”</p><footer><span class="slot av"><img src="fotos/cliente2.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Thiago Oliveira, MEI (fictício)</footer></blockquote>
+      <blockquote><p>“A troca de contador foi sem dor de cabeça. Eles cuidaram da papelada e eu não perdi nada.”</p><footer><span class="slot av"><img src="fotos/cliente3.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Rafael Santos, agência de marketing (fictício)</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- 8. Dúvidas -->
+<section id="duvidas" class="faq-sec">
+  <div class="wrap">
+    <h2>Dúvidas frequentes</h2>
+    <div class="faq">
+      <details open><summary>Posso trocar de contador sem perder nada?</summary><p>Sim. Pedimos os documentos ao contador anterior e organizamos a migração, para você não ficar sem atendimento em nenhum momento.</p></details>
+      <details><summary>Quanto custa?</summary><p>Depende do tipo e do porte da empresa. Depois de uma conversa rápida, você recebe um orçamento fechado, sem taxas escondidas.</p></details>
+      <details><summary>Como é o atendimento?</summary><p>Online e por WhatsApp, com respostas em linguagem simples. Se preferir, marcamos uma videochamada.</p></details>
+      <details><summary>Em quanto tempo vocês respondem?</summary><p>Em até 1 dia útil. Em datas de vencimento, priorizamos quem está com prazo correndo.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. Chamada final -->
+<section class="band" id="contato">
+  <div class="wrap final">
+    <div>
+      <h2 class="gold">Hoje, prazos soltos. Em 30 dias, tudo em dia.</h2>
+      <p class="lead">Responda algumas perguntas rápidas e abra a conversa com o resumo pronto. Um contador responde pelo WhatsApp em até 1 dia útil.</p>
+    </div>
+    <div class="chat" aria-label="Conversa com a Marco Contabilidade">
+      <div class="chat-head"><i>M</i><div><b>Marco Contabilidade</b><small>Responda 5 perguntas rápidas</small></div></div>
+      <div class="log" id="log" role="log" aria-live="polite"></div>
+      <div class="opts" id="opts"></div>
+      <div class="cf" id="cf" hidden><label class="sr" for="ci">Sua resposta</label><input id="ci" autocomplete="name" placeholder="Digite aqui" maxlength="60"><button class="btn" id="cs" type="button">Enviar</button></div>
+      <p class="fine" style="padding:0 16px 14px">Suas respostas vão direto para o nosso WhatsApp. Nada é guardado neste site.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div><b>Marco Contabilidade</b><br>CRC-SP [000000]<br>CNPJ [00.000.000/0000-00]</div>
+    <div>[Endereço do escritório]<br>[Cidade, estado]</div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="Olá! Vim pelo site e quero falar com um contador." aria-label="Falar com um contador no WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#fff" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/><path fill="#1faa57" d="M8.6 7.6c-.3.3-.8 1-.5 2 .6 2 2.2 3.8 4.2 4.8 1 .5 1.8.3 2.2-.1l.7-.9c.2-.3.1-.6-.1-.8l-1.4-.9c-.3-.2-.6-.1-.8.1l-.4.4c-1-.4-2-1.4-2.4-2.4l.4-.4c.2-.2.3-.5.1-.8L9.4 7.6c-.2-.2-.6-.2-.8 0z"/></svg><span>Fale com um contador</span></a>
+<div class="mbar"><a class="btn" data-wa="Olá! Vim pelo site e quero falar com um contador.">Falar no WhatsApp</a></div>
+
+<script>
+const WHATSAPP = "5511932315932"; // número provisório para teste; trocar pelo número do escritório
+const wa = t => "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(t);
+document.querySelectorAll("[data-wa]").forEach(a => { a.href = wa(a.dataset.wa); a.target = "_blank"; a.rel = "noopener"; });
+(() => {
+  const log = document.getElementById("log"), opts = document.getElementById("opts"), cf = document.getElementById("cf"), ci = document.getElementById("ci");
+  const steps = [
+    { k: "nome", q: () => "Oi! Eu sou o assistente da Marco Contabilidade. Qual é o seu nome?", text: true },
+    { k: "tipo", q: a => `Prazer, ${a.nome}! Qual é o tipo da sua empresa?`, o: ["MEI", "Microempresa ou pequena empresa", "Profissional PJ", "Ainda vou abrir a empresa"] },
+    { k: "dor", q: () => "O que mais incomoda você hoje na contabilidade?", o: ["Multas e atrasos", "Pago imposto demais", "Contador que demora a responder", "Não entendo meus números", "Quero trocar de contador"] },
+    { k: "fat", q: () => "Quanto a empresa fatura por mês, mais ou menos?", o: ["Até R$ 10 mil", "R$ 10 a 50 mil", "R$ 50 a 150 mil", "Acima de R$ 150 mil", "Ainda não fatura"] },
+    { k: "func", q: () => "Você tem ou pretende ter funcionários?", o: ["Sim, tenho", "Pretendo contratar", "Não"] }
+  ];
+  let ans, i, timer;
+  const add = (t, c) => { const d = document.createElement("div"); d.className = "msg " + c; d.textContent = t; log.appendChild(d); log.scrollTop = log.scrollHeight; return d; };
+  const ask = () => {
+    opts.innerHTML = ""; cf.hidden = true;
+    const dots = add("", "bot"); dots.innerHTML = '<span class="dots"><i></i><i></i><i></i></span>';
+    timer = setTimeout(() => {
+      dots.remove();
+      if (i >= steps.length) return done();
+      const st = steps[i]; add(st.q(ans), "bot");
+      if (st.text) { cf.hidden = false; ci.focus({ preventScroll: true }); }
+      else st.o.forEach(o => { const b = document.createElement("button"); b.type = "button"; b.textContent = o; b.onclick = () => reply(o); opts.appendChild(b); });
+    }, 550);
+  };
+  const reply = t => { ans[steps[i].k] = t; add(t, "me"); i++; ask(); };
+  const done = () => {
+    add(`Pronto, ${ans.nome}! Montei o resumo. Toque abaixo para falar com um contador no WhatsApp.`, "bot");
+    const msg = [
+      "Olá! Vim pelo site da Marco Contabilidade e quero falar com um contador.",
+      "",
+      "*Meus dados*",
+      "• Nome: " + ans.nome,
+      "• Tipo de empresa: " + ans.tipo,
+      "• Faturamento mensal: " + ans.fat,
+      "• Funcionários: " + ans.func,
+      "",
+      "*O que mais me incomoda hoje*",
+      ans.dor,
+      "",
+      "Quero minha empresa em dia. Podem me ajudar?"
+    ].join("\n");
+    const a = document.createElement("a"); a.className = "go"; a.href = wa(msg); a.target = "_blank"; a.rel = "noopener"; a.textContent = "Enviar no WhatsApp";
+    const r = document.createElement("button"); r.type = "button"; r.textContent = "Recomeçar"; r.onclick = start;
+    opts.append(a, r);
+  };
+  const start = () => { clearTimeout(timer); log.innerHTML = ""; ans = {}; i = 0; ask(); };
+  const send = () => { const v = ci.value.trim(); if (!v) { ci.focus(); return; } ci.value = ""; reply(v); };
+  document.getElementById("cs").addEventListener("click", send);
+  ci.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); send(); } });
+  start();
+})();
+(() => {
+  const words = [...document.querySelectorAll("#rot span")];
+  let i = 0;
+  setInterval(() => {
+    words[i].className = "out";
+    i = (i + 1) % words.length;
+    words[i].className = "";
+    void words[i].offsetWidth;
+    words[i].className = "on";
+    words.forEach((w, k) => { if (k !== i && w.className !== "out") w.className = ""; });
+  }, 2000);
+  words.forEach((w, k) => w.setAttribute("aria-hidden", k ? "true" : "false"));
+})();
+(() => {
+  const sel = ".hero .pill,.hero h1,.hero .lead,.hero .cta-row,.hero .secure,.stage,section h2,.sec-head .tag,.sec-head .lead,.proof .sub,.proof li,.teach .bc,.checks li,.for .btn,.gbars div,.gains .more,.vs,.pivot,.car,.quotes-sec .fine,blockquote,details,.final .lead,.final .chat";
+  const els = [...document.querySelectorAll(sel)], count = new Map();
+  els.forEach(el => { const n = count.get(el.parentElement) || 0; count.set(el.parentElement, n + 1); el.style.setProperty("--d", Math.min(n * .09, .45) + "s"); el.classList.add("rv"); });
+  if (!("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("in")); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12, rootMargin: "0px 0px -6% 0px" });
+  els.forEach(el => io.observe(el));
+})();
+const st = document.querySelector(".stage"), tl = st.querySelector(".tilt");
+if (matchMedia("(hover:hover) and (prefers-reduced-motion:no-preference)").matches) {
+  st.addEventListener("pointermove", e => { const r = st.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; tl.style.transform = `rotateY(${-12 + x * 12}deg) rotateX(${5 - y * 8}deg)`; });
+  st.addEventListener("pointerleave", () => tl.style.transform = "");
+}
+const track = document.getElementById("track");
+document.querySelectorAll(".arrow").forEach(b => b.addEventListener("click", () => {
+  track.scrollBy({ left: b.dataset.dir * (track.querySelector(".mod").offsetWidth + 16), behavior: "smooth" });
+}));
+</script>
+</body>
+</html>
