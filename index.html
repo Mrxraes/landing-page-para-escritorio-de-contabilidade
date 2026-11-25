@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0A1022">
+<link rel="preload" as="image" href="images/hero-contador.jpg">
 <title>Marco Contabilidade | Contabilidade para pequenas empresas</title>
 <meta name="description" content="Impostos, notas e obrigações da sua empresa em dia, com atendimento por WhatsApp e linguagem simples.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#060811;--panel:#0d1224;--band:#0c1020;--card:#0a0e1c;--ink:#F2F4FA;--muted:#9AA3BC;--line:#1f2740;
+  --bg:#0A1022;--panel:#121A36;--band:#0E1530;--card:#0F1630;--ink:#F4F6FC;--muted:#B0B9D4;--line:#27325A;
   --gold:#E9C45F;--gold-2:#B8924A;--gold-grad:linear-gradient(90deg,#F3D57A,#C9A24E 70%,#A98338);
   --teal:#1d5fe4;--teal-h:#3b77f2;--bad:#C98A8A;
   --font:'Poppins','Segoe UI',system-ui,sans-serif;
@@ -32,7 +35,7 @@ h3{font-size:1.05rem}
 p{margin:0}
 .gold{color:var(--gold)}
 .center{text-align:center}
-.lead{color:var(--ink);opacity:.88;font-size:1.05rem;max-width:46ch}
+.lead{color:var(--ink);opacity:.93;font-size:1.05rem;max-width:46ch}
 .fine{color:var(--muted);font-size:.85rem}
 
 /* botões */
@@ -41,7 +44,7 @@ p{margin:0}
 .btn.block{width:100%}
 
 /* topo */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(5,5,5,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,16,34,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:700 1.05rem var(--font)}
 .logo i{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);color:var(--gold);font:800 1rem var(--font);font-style:normal}
@@ -186,7 +189,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .mod .art{display:grid;place-items:center;aspect-ratio:1/1.05;border-radius:6px;background:radial-gradient(circle at 50% 35%,#3a2f12,#0a0a0a 75%);font:800 4.2rem var(--font);color:var(--gold)}
 .mod h3{padding:14px 10px 6px;border-bottom:2px solid var(--gold-2);margin:0 10px;font-size:1rem;min-height:3.6em;display:flex;align-items:center;justify-content:center}
 .mod p{padding:12px 10px 10px;color:var(--muted);font-size:.84rem;line-height:1.45}
-.arrow{position:absolute;top:42%;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold-2);background:rgba(5,5,5,.9);color:var(--gold);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;z-index:2}
+.arrow{position:absolute;top:42%;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--gold-2);background:rgba(10,16,34,.9);color:var(--gold);font-size:1.3rem;cursor:pointer;display:grid;place-items:center;z-index:2}
 .arrow:hover{background:var(--gold);color:#000}
 .arrow.l{left:-14px}.arrow.r{right:-14px}
 
@@ -215,12 +218,12 @@ details p{margin-top:10px;color:var(--muted);font-size:.93rem}
 .final h2{max-width:18ch;margin-bottom:14px}
 form{display:grid;gap:14px;background:var(--card);border:1.5px solid var(--gold-2);padding:26px;border-radius:14px}
 label{display:grid;gap:6px;font-weight:600;font-size:.88rem}
-input,select{font:inherit;min-height:48px;padding:10px 12px;border:1.5px solid var(--line);border-radius:4px;background:#000;color:var(--ink)}
+input,select{font:inherit;min-height:48px;padding:10px 12px;border:1.5px solid var(--line);border-radius:4px;background:#070C1C;color:var(--ink)}
 input::placeholder{color:#6d6a60}
 .err{color:var(--bad);font-size:.88rem;min-height:1.2em}
 form .fine{margin:0}
 
-footer.site{background:#000;color:var(--muted);padding:36px 0;border-top:1px solid var(--line);font-size:.88rem}
+footer.site{background:#070B18;color:var(--muted);padding:36px 0;border-top:1px solid var(--line);font-size:.88rem}
 footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
 footer.site b{color:var(--gold);font-size:1rem}
 .mbar{display:none}
@@ -275,7 +278,7 @@ footer.site b{color:var(--gold);font-size:1rem}
 .chat-head b{display:block;font-size:.92rem}.chat-head small{color:var(--muted);font-size:.78rem}
 .log{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:10px;padding:16px;scroll-behavior:smooth}
 .msg{max-width:84%;padding:10px 14px;border-radius:14px;font-size:.9rem;line-height:1.45;animation:pop .35s ease}
-.msg.bot{align-self:flex-start;background:#161d36;border-bottom-left-radius:4px}
+.msg.bot{align-self:flex-start;background:#1B2547;border-bottom-left-radius:4px}
 .msg.me{align-self:flex-end;background:var(--gold);color:#1a1405;font-weight:500;border-bottom-right-radius:4px}
 .dots{display:inline-flex;gap:4px;padding:4px 0}.dots i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
 @keyframes pop{from{opacity:0;transform:translateY(8px)}}
@@ -301,6 +304,13 @@ footer.site b{color:var(--gold);font-size:1rem}
   body{padding-bottom:76px}
 }
 @media (prefers-reduced-motion:reduce){.msg{animation:none}.dots i{animation:none}.js .rv{opacity:1!important;transform:none!important;transition:none!important}.mod:hover{transform:none!important}.tilt{transition:none}.for h2,.for .checks li::before{animation:none!important}.proof .gold,.proof b{animation:none!important}.hero h1 .rot span{transition:none!important}*{transition:none!important;scroll-behavior:auto!important}}
+/* brilho: o halo azul acompanha a foto em qualquer tela */
+.stage{isolation:isolate}
+.stage::before{content:"";position:absolute;inset:-14% -22%;z-index:-1;pointer-events:none;background:radial-gradient(closest-side,rgba(59,119,242,.55),rgba(29,95,228,.18) 55%,transparent 75%)}
+@media (max-width:860px){
+  .hero{background:radial-gradient(130% 34% at 50% 0%,rgba(59,119,242,.32),transparent 72%),radial-gradient(60% 30% at 0% 100%,rgba(233,196,95,.14),transparent 70%),var(--bg)}
+  .stage::before{inset:-8% -10%}
+}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -334,7 +344,7 @@ footer.site b{color:var(--gold);font-size:1rem}
     </div>
     <div class="stage">
       <div class="tilt">
-        <div class="slot hero-photo" data-label="Foto do contador ou do empresário (vertical, 4:5)"><img alt="Contador da Marco Contabilidade" loading="eager" decoding="async"></div>
+        <div class="slot hero-photo" data-label="Foto do contador ou do empresário (vertical, 4:5)"><img src="images/hero-contador.jpg" alt="Contador da Marco Contabilidade, de blazer azul-marinho, sorrindo" loading="eager" fetchpriority="high" decoding="async" width="960" height="1200" style="object-position:50% 30%"></div>
         <aside class="stmt" aria-label="Exemplo de fechamento do mês">
           <h3>Fechamento do mês</h3>
           <small>Exemplo ilustrativo do que você recebe</small>
@@ -374,10 +384,10 @@ footer.site b{color:var(--gold);font-size:1rem}
       <p class="lead" style="margin:12px auto 0">Do CNPJ ao fechamento de cada mês, pelo seu WhatsApp.</p>
     </div>
     <div class="bento">
-      <article class="bc"><div><h3>Contabilidade mensal</h3><p>Balancetes e relatórios que você consegue entender e usar.</p></div><div class="slot"><img src="fotos/reuniao.jpg" alt="Reunião de equipe analisando relatórios financeiros" loading="lazy" decoding="async" width="400" height="400" style="object-position:55% 45%"></div></article>
-      <article class="bc tall"><div class="slot"><img src="fotos/fachada.jpg" alt="Fachada de um escritório de contabilidade" loading="lazy" decoding="async" width="400" height="400" style="object-position:50% 30%"></div><div><span class="tag dark">Primeiro passo</span><h3>Abertura de empresa</h3><p>CNPJ, inscrições e licenças, do contrato social ao primeiro imposto.</p></div></article>
+      <article class="bc"><div><h3>Contabilidade mensal</h3><p>Balancetes e relatórios que você consegue entender e usar.</p></div><div class="slot"><img src="images/sala-reuniao.jpg" alt="Equipe em sala de reuniões analisando o desempenho anual em uma tela" loading="lazy" decoding="async" width="520" height="923" style="object-position:50% 42%"></div></article>
+      <article class="bc tall"><div class="slot"><img src="images/fachada-escritorio.jpg" alt="Fachada do escritório Marco Contabilidade" loading="lazy" decoding="async" width="760" height="1139" style="object-position:50% 30%"></div><div><span class="tag dark">Primeiro passo</span><h3>Abertura de empresa</h3><p>CNPJ, inscrições e licenças, do contrato social ao primeiro imposto.</p></div></article>
       <article class="bc blue"><div><h3>Impostos e obrigações</h3><p>Cálculo, guias e declarações entregues dentro do prazo.</p></div><div class="viz" aria-hidden="true"><i style="height:35%"></i><i style="height:55%"></i><i style="height:45%"></i><i style="height:80%"></i><i style="height:100%"></i></div></article>
-      <article class="bc"><div><h3>Folha e departamento pessoal</h3><p>Admissões, férias, 13º salário e encargos sem erro.</p></div><div class="slot"><img src="fotos/equipe.jpg" alt="Equipe comemorando em um escritório" loading="lazy" decoding="async" width="400" height="400"></div></article>
+      <article class="bc"><div><h3>Folha e departamento pessoal</h3><p>Admissões, férias, 13º salário e encargos sem erro.</p></div><div class="slot"><img src="images/equipe-comemorando.jpg" alt="Equipe comemorando com as mãos para o alto em um escritório" loading="lazy" decoding="async" width="460" height="527"></div></article>
       <article class="bc slim"><div><h3>Troca de contador</h3><p>Cuidamos da migração e da papelada, e você não perde nada.</p></div></article>
       <article class="bc slim"><div><h3>Regularização e imposto de renda</h3><p>Saída de pendências e declaração de pessoa física e jurídica.</p></div></article>
     </div>
@@ -463,9 +473,9 @@ footer.site b{color:var(--gold);font-size:1rem}
     <h2 style="margin-bottom:10px">Quem já trabalha com a gente</h2>
     <p class="fine center" style="margin-bottom:30px">Depoimentos e pessoas fictícios, só para ilustrar o layout. Troque por depoimentos reais antes de publicar.</p>
     <div class="quotes">
-      <blockquote><p>“Antes eu descobria a guia vencida depois do prazo. Agora recebo o aviso antes e pago tudo em dia.”</p><footer><span class="slot av"><img src="fotos/cliente1.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Larissa Mendes, consultoria PJ (fictício)</footer></blockquote>
-      <blockquote><p>“Tirei minhas dúvidas pelo WhatsApp no mesmo dia, sem termo complicado. Hoje entendo o que estou pagando.”</p><footer><span class="slot av"><img src="fotos/cliente2.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Thiago Oliveira, MEI (fictício)</footer></blockquote>
-      <blockquote><p>“A troca de contador foi sem dor de cabeça. Eles cuidaram da papelada e eu não perdi nada.”</p><footer><span class="slot av"><img src="fotos/cliente3.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Rafael Santos, agência de marketing (fictício)</footer></blockquote>
+      <blockquote><p>“Antes eu descobria a guia vencida depois do prazo. Agora recebo o aviso antes e pago tudo em dia.”</p><footer><span class="slot av"><img src="images/depoimento-larissa.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Larissa Mendes, consultoria PJ (fictício)</footer></blockquote>
+      <blockquote><p>“Tirei minhas dúvidas pelo WhatsApp no mesmo dia, sem termo complicado. Hoje entendo o que estou pagando.”</p><footer><span class="slot av"><img src="images/depoimento-thiago.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Thiago Oliveira, MEI (fictício)</footer></blockquote>
+      <blockquote><p>“A troca de contador foi sem dor de cabeça. Eles cuidaram da papelada e eu não perdi nada.”</p><footer><span class="slot av"><img src="images/depoimento-rafael.jpg" alt="" loading="lazy" decoding="async" width="48" height="48"></span>Rafael Santos, agência de marketing (fictício)</footer></blockquote>
     </div>
   </div>
 </section>
